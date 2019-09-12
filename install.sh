@@ -50,4 +50,13 @@ sed -i 's|failregex = |failregex = ^Connection \(closed\|reset\) by authenticati
 systemctl restart fail2ban
 echo "Fail2ban set up"
 
+# Download bottle for creating webhooks
+echo "Downloading Bottle"
+wget https://bottlepy.org/bottle.py
+
+# Download python script for creating webpages
+ufw allow 80
+ip addr show
+wget https://raw.githubusercontent.com/cadamswaite/RPI-Jekyll-Compiler/master/webhook.py
+
 echo "Install complete!"
