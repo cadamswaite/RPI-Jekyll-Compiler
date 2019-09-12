@@ -59,6 +59,17 @@ ufw allow 80
 ip addr show
 wget https://raw.githubusercontent.com/cadamswaite/RPI-Jekyll-Compiler/master/webhook.py
 
+#Install Jekyll
+echo "Installing Jekyll"
 apt-get install ruby-full build-essential -y
+echo '# Install Ruby Gems to ~/gems' >> ~/.bashrc
+echo 'export GEM_HOME="$HOME/gems"' >> ~/.bashrc
+echo 'export PATH="$HOME/gems/bin:$PATH"' >> ~/.bashrc
+source ~/.bashrc
+gem install jekyll bundler
+echo "Jekyll and bundler installed."
+
+python ./webhook.py
+
 
 echo "Install complete!"
